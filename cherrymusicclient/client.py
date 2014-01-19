@@ -2,17 +2,13 @@ from .api import api
 from .library import Playlist
 
 class CherryMusicClient(object):
-	def __init__(self, url, username, password):
+	def __init__(self, url=None):
 		self.url = api.url = url
-
-		self.username = username
-		self.password = password
 		self.playlists = []
+		self.current_playlist = None
 
-		self.login()
-
-	def login(self):
-		return api.login(self.username, self.password)
+	def login(self, username, password):
+		return api.login(username, password)
 
 	def logout(self):
 		api.logout()
@@ -22,3 +18,12 @@ class CherryMusicClient(object):
 
 		for playlist in playlists:
 			self.playlists.append(Playlist(playlist))
+
+	def select_playlist(self, name):
+		self.current_playlist = None
+
+		for playlist in self.playlists:
+			if playlist.title == name:
+				self.current_playlist = playlist
+
+		return self.current_playlist
