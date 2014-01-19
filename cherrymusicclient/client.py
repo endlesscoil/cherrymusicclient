@@ -2,7 +2,7 @@ from .api import api
 from .library import Playlist
 
 class CherryMusicClient(object):
-	def __init__(self, url=None):
+	def __init__(self):
 		self.url = api.url = url
 		self.playlists = []
 		self.current_playlist = None
@@ -27,3 +27,12 @@ class CherryMusicClient(object):
 				self.current_playlist = playlist
 
 		return self.current_playlist
+
+	@property
+	def url(self):
+	    return self._url
+
+	@url.setter
+	def url(self, value):
+	    self._url = value
+	    api.url = value

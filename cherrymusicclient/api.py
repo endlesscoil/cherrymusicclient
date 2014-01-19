@@ -11,7 +11,7 @@ class ForbiddenError(Exception):
 	pass
 
 class CherryMusicAPI(object):
-	def __init__(self, url):
+	def __init__(self, url=None):
 		self.url = url
 		self.logged_in = False
 
@@ -214,5 +214,14 @@ class CherryMusicAPI(object):
 				ret = r.text
 
 		return ret
+
+	@property
+	def url(self):
+	    return self._url
+	
+	@url.setter
+	def url(self, value):
+	    self._url = value
+	    self.logged_in = False
 
 api = CherryMusicAPI(None)
