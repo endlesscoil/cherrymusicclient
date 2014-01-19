@@ -1,3 +1,4 @@
+import logging
 import urllib
 
 from .api import api
@@ -5,6 +6,8 @@ from .decorators import get_track_info
 
 class Playlist(object):
     def __init__(self, data):
+        self.log = logging.getLogger(self.__class__.__name__)
+
         self.id = data['plid']
         self.title = data['title']
         self.owner = data['owner']
@@ -35,6 +38,8 @@ class Playlist(object):
 
 class Track(object):
     def __init__(self, data, force_info=False):
+        self.log = logging.getLogger(self.__class__.__name__)
+
         self.path = data['path']
         self.urlpath = data['urlpath']
         self.label = data['label']

@@ -1,9 +1,12 @@
+import logging
+
 from .api import api
 from .library import Playlist
 
 class CherryMusicClient(object):
 	def __init__(self):
-		self.url = api.url = url
+		self.log = logging.getLogger(self.__class__.__name__)
+
 		self.playlists = []
 		self.current_playlist = None
 

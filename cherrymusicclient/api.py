@@ -1,3 +1,4 @@
+import logging
 import requests
 import json
 
@@ -12,6 +13,8 @@ class ForbiddenError(Exception):
 
 class CherryMusicAPI(object):
 	def __init__(self, url=None):
+		self.log = logging.getLogger(self.__class__.__name__)
+
 		self.url = url
 		self.logged_in = False
 
