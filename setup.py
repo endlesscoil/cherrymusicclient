@@ -15,9 +15,6 @@ setup(name='cherrymusicclient',
     packages=['cherrymusicclient'],
     install_requires=[],
     dependency_links=[],
-    # test_suite='nose.collector',
-    # tests_require=['nose', 'mock'],
-    # scripts=['bin/ad2-sslterm', 'bin/ad2-firmwareupload'],
     include_package_data=True,
     zip_safe=False)
 
